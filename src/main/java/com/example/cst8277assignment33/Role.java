@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Entity
 @Table(name= "roles")
 public class Role {
-
+/* Id annotan needed to make use of CRUD repository off the shelf methods and make data retrieval more stream lined */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

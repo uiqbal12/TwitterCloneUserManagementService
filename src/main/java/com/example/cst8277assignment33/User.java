@@ -7,6 +7,7 @@ import javax.persistence.*;
 
 
 public class User {
+    //Id needed to make use of the CRUD operatoins in the REPO for User
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

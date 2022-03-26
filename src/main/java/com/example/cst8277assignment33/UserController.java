@@ -13,7 +13,7 @@ public class UserController {
     UserRepository userRepository;
 
 
-
+/*This is the GET mapping to retrieve all users making use of the CRUD interface method of findall(): */
     @GetMapping("/users")
     public @ResponseBody
     Iterable<User> getAllUsers() {
@@ -21,7 +21,8 @@ public class UserController {
         return userRepository.findAll();
 
     }
-
+/* This is the mapping for POST method to add a user in the database, it takes the parameters of name, email, password, created, last_visit_id
+     It also auto generates the id for you and inserts the record in the database specified */
     @PostMapping(path="/adduser")
     public @ResponseBody
     String addNewUser(@RequestParam String name,
@@ -29,7 +30,9 @@ public class UserController {
                       @RequestParam String password,
                       @RequestParam int created,
                       @RequestParam int last_visit_id) {
-
+/* to help with debugging, wanted to log the info when the system enters addNewUser to make sure that we are speaking with the database
+but the problem lies in the SQL manipulation and not the REST Mapping
+ */
         log.info("Inside the method to post a user!");
 
 
@@ -47,8 +50,5 @@ public class UserController {
 
 
 
-    @GetMapping("/welcome")
-    public String showWelcome() {
-        return "Welcome to com.example.cst8277assignment33.User Management Service!";
-    }
+
 }
